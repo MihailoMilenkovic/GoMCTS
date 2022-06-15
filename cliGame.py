@@ -16,7 +16,7 @@ nextPlayerHuman=False
 while not m.game_over:
   if nextPlayerHuman:
     while True:
-      print("Play a move (-1,-1) for pass")
+      print("Play a move (-1,-1 = pass)")
       move=[int(x) for x in input().split(",")][::-1]
       # print("move:",move[0],move[1])
       if len(move)==2 and m.legal_move(move[0],move[1]):
@@ -26,8 +26,8 @@ while not m.game_over:
   else:
     a=MonteCarloTreeSearchAgent(m.copy())
     move=a.mctsSearch() 
-    if not m.legal_move(move[0],move[1]):
-      print("NIJE DOBAR POTEZ....",move[0],move[1]) 
+    # if not m.legal_move(move[0],move[1]):
+    #   print("NIJE DOBAR POTEZ....",move[0],move[1]) 
   print("playing ",move[1]," ",move[0]) 
   m.place_stone(move[0],move[1])
   print(".......................................")
